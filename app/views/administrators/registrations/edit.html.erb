@@ -1,25 +1,81 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<div class="center_wrap">
+  <div class="bread_crumb">
+    <ul>
+      <li>Sign Up</li>
+    </ul>
+  </div>
+  <div class="content_box2">
+    <div class="form_box" style="width:100%; background-color:#e7e7e7;">
+      <h2 class="heads"><span>Edit <%= resource_name.to_s.humanize %></span></h2>
 
-<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
-  <%= devise_error_messages! %>
+      <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
+          <table width="100%" border="0" class="table1">
+            <tr>
+              <td>
+                <%= devise_error_messages! %>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div><%= f.label :email %><br />
+                  <%= f.email_field :email %></div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div><%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
+                  <%= f.password_field :password, :autocomplete => "off" %></div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div><%= f.label :password_confirmation %><br />
+                  <%= f.password_field :password_confirmation %></div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div><%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
+                  <%= f.password_field :current_password %></div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div><%= f.label :first_name %><br />
+                  <%= f.text_field :first_name %></div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div><%= f.label :middle_name %><br />
+                  <%= f.text_field :middle_name %></div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div><%= f.label :last_name %><br />
+                  <%= f.text_field :last_name %></div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div><%= f.label :mobile_number %><br />
+                  <%= f.text_field :mobile_number %></div>
+              </td>
+            </tr>
+            <tr>
+              <td colspan="2">
+                <div><%= f.submit "Update" , :class => 'style1' %></div>
+              </td>
+            </tr>
+          </table>
+      <% end %>
 
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email %></div>
+      <h3>Cancel my account</h3>
 
-  <div><%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-  <%= f.password_field :password, :autocomplete => "off" %></div>
+      <p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), :confirm => "Are you sure?", :method => :delete %>.</p>
 
-  <div><%= f.label :password_confirmation %><br />
-  <%= f.password_field :password_confirmation %></div>
-
-  <div><%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-  <%= f.password_field :current_password %></div>
-
-  <div><%= f.submit "Update" %></div>
-<% end %>
-
-<h3>Cancel my account</h3>
-
-<p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), :confirm => "Are you sure?", :method => :delete %>.</p>
-
-<%= link_to "Back", :back %>
+      <%= link_to "Back", :back %>
+    </div>
+  </div>
+</div>
