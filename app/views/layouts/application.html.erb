@@ -37,6 +37,17 @@
     <!-- Then somewhere in the <body> section -->
   </header><!-- END: #header-->
   <section id="main-content">
+    <br/>
+    <% if administrator_signed_in? %>
+    <% else %>
+        <div id="navigation">
+          <ul class="sf-menu">
+            <li><a href="<%= home_index_path %>">Home</a></li>
+            <li><a href="<%= home_about_us_path %>" title="About Share a meal">About Us</a></li>
+            <li><a href="<%= home_contact_us_path %>" title="Contact Share a meal">Contact Us</a></li>
+          </ul>
+        </div>
+    <%end%>
     <% flash.each do |name, msg| %>
         <%= content_tag :div, msg, :id => "flash_#{name}" %>
     <% end %>
