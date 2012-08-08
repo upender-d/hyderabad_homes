@@ -1,3 +1,9 @@
+GIT
+  remote: https://github.com/agentrock/gdata.git
+  revision: 271d0b49d7dbe97b16969f06104f3e91022c40bc
+  specs:
+    gdata (1.1.1)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -53,7 +59,6 @@ GEM
       multi_json (~> 1.0)
     formtastic (2.2.1)
       actionpack (>= 3.0)
-    gdata (1.1.2)
     geocoder (1.1.2)
     gmaps4rails (0.7.7)
       crack
@@ -65,6 +70,7 @@ GEM
       railties (>= 3.2.0, < 5.0)
       thor (~> 0.14)
     json (1.7.3)
+    libv8 (3.3.10.4)
     mail (2.4.4)
       i18n (>= 0.4.0)
       mime-types (~> 1.16)
@@ -111,6 +117,8 @@ GEM
       hike (~> 1.2)
       rack (~> 1.0)
       tilt (~> 1.1, != 1.3.0)
+    therubyracer (0.10.1)
+      libv8 (~> 3.3.10)
     thor (0.14.6)
     tilt (1.3.3)
     treetop (1.4.10)
@@ -131,8 +139,9 @@ DEPENDENCIES
   coffee-rails (~> 3.2.1)
   contacts
   devise
+  execjs
   formtastic
-  gdata
+  gdata!
   geocoder
   gmaps4rails (= 0.7.7)
   hpricot
@@ -141,5 +150,6 @@ DEPENDENCIES
   rails (= 3.2.3)
   sass-rails (~> 3.2.3)
   spatial_adapter
+  therubyracer
   uglifier (>= 1.0.3)
   will_paginate (~> 3.0)
