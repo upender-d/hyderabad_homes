@@ -1,0 +1,138 @@
+<br/>
+<div class="center_wrap">
+  <div class="bread_crumb">
+    <ul>
+      <li><a href="<%= root_path %>">Home</a></li> » <li>User Dashboard</li>
+    </ul>
+  </div>
+  <div class="content_box2">
+    <h4>Welcome to User Dashboard</h4>
+
+    <% if current_user.user_properties.present? %>
+        <h5>User Properties</h5>
+
+        <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+        <script type="text/javascript">
+            google.load("visualization", "1", {packages:["corechart"]});
+            google.setOnLoadCallback(drawChart);
+            function drawChart() {
+                var data = google.visualization.arrayToDataTable([
+
+                    ['UserProperty', 'Owner ship Type'],
+                    <% @ownership_types.each do |type| %>
+                    ['<%= type.name %>', <%= type.user_properties.count %>],
+                    <%end%>
+                    /*['rented',     <%#= @ownership_type_rent.count %>],
+                     ['owned',      <%#= @ownership_type_owned.count %>],
+                     ['leased',     <%#= @ownership_type_leased.count %>]*/
+                ]);
+
+                var options = {
+                    title: 'Ownership type'  ,
+                    width: 450,
+                    height: 270
+                };
+
+                var chart = new google.visualization.PieChart(document.getElementById('user_property_chart_div'));
+                chart.draw(data, options);
+            }
+        </script>
+        <script type="text/javascript">
+            google.load("visualization", "1", {packages:["corechart"]});
+            google.setOnLoadCallback(drawChart);
+            function drawChart() {
+                var data = google.visualization.arrayToDataTable([
+                    ['UserProperties', 'Property Type'],
+                    <% @properties.each do |property| %>
+                    ['<%= property.name %>',<%= property.user_properties.count %> ] ,
+                    <%end%>
+                    /*['Flat',       <%#= @property_type_flat.count %>],
+                     ['Plot',       <%#= @property_type_plot.count %>],
+                     ['Individual', <%#= @property_type_individual.count %>]*/
+                ]);
+
+                var options = {
+                    title: 'Property type' ,
+                    width: 450,
+                    height: 270
+                };
+
+                var chart = new google.visualization.PieChart(document.getElementById('user_property_div_chart'));
+                chart.draw(data, options);
+            }
+        </script>
+
+        <table width="100%">
+          <tr>
+            <td id="user_property_chart_div"></td>
+            <td id="user_property_div_chart"></td>
+          </tr>
+        </table>
+        <br/>
+    <%end%>
+    <% if current_user.user_looking_for_properties.present? %>
+        <h5>User Looking for Properties</h5>
+
+        <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+        <script type="text/javascript">
+            google.load("visualization", "1", {packages:["corechart"]});
+            google.setOnLoadCallback(drawChart);
+            function drawChart() {
+                var data = google.visualization.arrayToDataTable([
+                    ['Task', 'UserLookingforProperty'],
+                    <% @looking_fors.each do |looking| %>
+                    ['<%= looking.name %>',<%= looking.user_looking_for_properties.count %>],
+                    <%end%>
+                    /*['buy',       <%#= @interested_to_buy.count %>],
+                     ['rent',      <%#= @interested_to_rent.count %>],
+                     ['lease',     <%#= @interested_to_lease.count %>]*/
+
+                ]);
+
+                var options = {
+                    title: 'Looking for',
+                    height: 270,
+                    width: 450
+                };
+
+                var chart = new google.visualization.PieChart(document.getElementById('looking_for_chart_div'));
+                chart.draw(data, options);
+            }
+        </script>
+
+        <script type="text/javascript">
+            google.load("visualization", "1", {packages:["corechart"]});
+            google.setOnLoadCallback(drawChart);
+            function drawChart() {
+                var data = google.visualization.arrayToDataTable([
+                    ['Task', 'UserLookingforProperty'],
+                    <% @properties.each do |property| %>
+                    ['<%= property.name %>',<%= property.user_looking_for_properties.count %> ] ,
+                    <%end%>
+                    /*['rented',     <%#= @property_type_flat.count %>],
+                     ['owned',      <%#= @property_type_plot.count %>],
+                     ['leased',     <%#= @property_type_individual.count %>]*/
+                ]);
+
+                var options = {
+                    title: 'Property type',
+                    height: 270,
+                    width: 450
+                };
+
+                var chart = new google.visualization.PieChart(document.getElementById('looking_for_div_chart'));
+                chart.draw(data, options);
+            }
+        </script>
+
+        <table width="100%">
+          <tr>
+            <td id="looking_for_chart_div"></td>
+            <td id="looking_for_div_chart"></td>
+          </tr>
+        </table>
+
+        <br/>
+    <%end%>
+  </div>
+</div>

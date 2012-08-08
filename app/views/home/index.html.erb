@@ -1,0 +1,38 @@
+<br/>
+<div class="center_wrap">
+  <%if user_signed_in?%>
+
+      <!--<div id="navigation">
+          <ul class="sf-menu">
+            <li><a href="<%#= home_index_path %>" title="Home">Home</a></li>
+            <li><%#= link_to 'Update Profile',edit_users_profile_path %> </li>
+          </ul>
+        </div>-->
+      <br/>
+  <%else%>
+      <div class="bread_crumb">
+        <ul>
+          <li><a href="<%= home_index_path %>" title="Home">Home</a></li>
+          <li><a href="<%= home_about_us_path %>" title="About Us">About Us</a></li>
+          <li><a href="<%= home_contact_us_path %>" title="Contact Us">Contact Us</a></li>
+        </ul>
+      </div>
+  <%end%>
+  <%if administrator_signed_in?%>
+      <%= render 'login_index'%>
+  <% elsif user_signed_in? %>
+      <%= render 'login_index'%>
+  <%else%>
+      <div class="left1">
+        <%= render "left" %>
+      </div>
+      <div id="index">
+        <%= render "index"%>
+      </div>
+  <% end %>
+</div>
+
+
+
+
+

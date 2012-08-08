@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  user_id: 1
+  location: MyString
+  property_type: MyString
+  interested_to: MyString
+  latitude: 1.5
+  longitude: 1.5
+
+two:
+  user_id: 1
+  location: MyString
+  property_type: MyString
+  interested_to: MyString
+  latitude: 1.5
+  longitude: 1.5

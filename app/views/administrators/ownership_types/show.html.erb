@@ -1,0 +1,29 @@
+<br/>
+<div class="center_wrap">
+  <div class="bread_crumb">
+    <ul>
+      <li><a href="<%= administrators_dashboard_index_path %>">Dashboard</a></li>
+      <li>»</li> <li><a href="<%= administrators_ownership_types_path %>">Properties
+    </a></li> <li>»</li> <li>New Property</li>
+    </ul>
+  </div>
+  <div class="content_box">
+    <div class="map_right">
+      <div class="buttons_size">
+        <span><%= link_to "Edit Property" , edit_administrators_ownership_type_path, :class => 'read_more', :title => 'update Property' %></span>
+        <!--<span><%#= link_to "View All Properties" , administrators_ownership_types_path, :class => 'read_more', :title => 'Properties' %></span>-->
+      </div>
+    </div>
+
+    <div class="details">
+      <h2 class="heads"><span> User Property Details</span></h2>
+      <br/>
+      <table style="width:100%;" class="table">
+        <tr>
+          <td align="right" class="label">Property Name</td>
+          <td align="left"><%= @ownership_type.name %></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>

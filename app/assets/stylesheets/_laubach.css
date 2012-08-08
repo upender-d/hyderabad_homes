@@ -1,0 +1,230 @@
+html {
+	font-family: Helvetica, Arial, sans-serif !important;	
+}
+
+.clear {
+	clear: both;
+}
+
+ul.team li {
+    float: left !important;
+    width: 30% !important;
+    margin-left: 5% !important;
+    margin-right: 0px !important;
+}
+
+ul.team li:first-child {
+    margin-left: 0px !important;
+}
+
+
+.hyperlink a,
+.thumb_list li a.team_twitter {
+	background: none;
+	float: none;
+	margin-top: -10px;
+	display: inline-block;
+	padding: 1px 3px;
+}
+
+.hyperlink a:hover,
+.thumb_list li a.team_twitter:hover {
+	text-decoration: none;
+	background: #02ACF2;
+	color: white;
+}
+
+a.team_mail {
+	background: none !important;
+	float: none !important;
+	margin-top: -20px !important;	
+}
+
+.service div div {
+	float: none;
+	width: auto;
+}
+
+ul.inner_list {
+	list-style: none;
+	margin: 0px;
+}
+
+ul.inner_list img {
+	width: auto !important;
+	height: auto !important;	
+	max-width: 150px;	
+	max-height: 150px;
+}
+
+ul.inner_list li {
+	float: left;
+	text-align: center;
+	padding: 14px 0;
+}
+
+ul.inner_list.one li {
+	width: 100%;
+}
+
+ul.inner_list.two li {
+	width: 50%;
+}
+
+ul.inner_list.three li {
+	width: 33%;
+}
+
+ul.inner_list.three li:first-child {
+	width: 34%;
+}
+
+ul.inner_list.four li {
+	width: 25%;
+}
+
+ul.inner_list.five li {
+	width: 20%;
+}
+
+ul.inner_list img {
+	width: 50% !important;
+	float: none;
+	margin-top: 0px;
+	border: 0px;
+}
+
+ul.inner_list a.img {
+	background: none;
+}
+
+ul.contributors li {
+	padding: 20px 0px 20px 0px;	
+}
+
+ul.contributors li span {
+	font-weight: bold;
+	text-transform: uppercase;
+}
+
+ul.contributors li span.position {
+	font-size: 10px;
+	font-family: Georgia,"Times New Roman",Times,serif;
+	color: #B2AEA8;
+	font-style: italic;	
+}
+
+ul.contributors li span.hyperlink {
+	font-weight: normal;
+	text-transform: none;
+	font-size: 10px;
+	font-family: Georgia,"Times New Roman",Times,serif;
+	color: #B2AEA8;
+	font-style: italic;
+}
+
+ul.contributors li span.hyperlink a {
+	float: none !important;
+	margin-top: -5px !important;	
+}
+
+ul.technologies li {
+	padding: 0px 0px 20px 0px;
+	text-align: left;
+}
+
+ul.technologies li.last {
+	padding: 0px;	
+}
+
+ul.technologies li div:first-child {
+	font-weight: bold;
+	text-transform: uppercase;
+}
+
+ul.technologies li div.description {
+	padding-right: 5px;
+}
+
+ul.get_started {
+	list-style: none;
+	margin: 0px;
+	background: #F5F5F5;
+	padding: 15px;
+	color: #757575;
+	border: 1px solid #333333;
+}
+
+ul.get_started li {
+	line-height: 3;
+}
+
+ul.get_started li code, span.download_countdown {
+	/*background: #333333;*/
+	/*color: #02ACF2;*/
+	background: #02ACF2;
+	color: #FFFFFF;
+	padding: 2px 5px;	
+	font-weight: bold;
+	font-size: 14px;
+}
+
+
+
+/* ROADMP */
+ul.inner_list.roadmap li:first-child {
+    font-weight: bold;
+    text-align: left;
+    width: 5%;
+}
+
+ul.inner_list.roadmap li:nth-child(2) {
+    font-weight: bold;
+    text-align: left;
+    width: 12%;
+}
+
+ul.inner_list.roadmap li:last-child {
+    text-align: left;
+    width: 78%;
+    margin-left: 5%;
+}
+
+
+#hiring {
+	/*background-image: url('/wp-content/uploads/2012/05/were_hiring.png');*/
+	width: 84px;
+	height: 68px;
+	position: absolute;
+	left: 92px;
+	top: 8px;
+	cursor: pointer;
+}
+
+@media handheld and (max-width: 480px), screen and (max-device-width: 480px), screen and (max-width: 767px)  {
+	#hiring {
+		right: 0;
+		left: auto;
+	}
+}
+
+@media handheld and (max-width: 479px), screen and (max-device-width: 479px), screen and (max-width: 479px) {
+	#hiring {
+		right: 0;
+		left: auto;
+	}	
+}
+
+/*
+body #slider {
+	background-size: 100% auto;	
+}
+
+body .nivoSlider img {
+	width: 100%;
+	height: auto;	
+}
+
+body .nivo-slice {
+	background-size: 1400%;	
+}*/

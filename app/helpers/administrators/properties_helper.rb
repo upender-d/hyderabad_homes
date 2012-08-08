@@ -1,0 +1,2 @@
+module Administrators::PropertiesHelper
+end

@@ -1,0 +1,37 @@
+<div id="toppanel">
+  <div id="panel">
+    <div class="content clearfix">
+      <div class="left">
+        <h1>Welcome to Hyderabad Homes</h1>
+        <p class="grey">Property Listings</p>
+        <h2>Know More</h2>
+        <p class="grey">Are You looking for a property.. Here you have an option.. Hyderabad homes Provides you to choose You property ..</p>
+      </div>
+      <%= render :partial => '/layouts/links' %>
+    </div>
+  </div>
+  <div class="tab">
+    <ul class="login">
+      <li class="left">&nbsp;</li>
+      <% if user_signed_in? %>
+          <li id="open" class="open">Hello <%=  current_user.email ? current_user.email: "User" %> !</li>
+          <li id="close" style="display: none;" class="close">Hello
+            <%=  current_user.email? ? current_user.email: "User" %> !</li>
+          <li class="sep">|</li>
+          <li id="toggle"> <a id="open" class="open" href="#">Dashboard</a>
+            <a id="close" style="display: none;" class="close" href="#">Dashboard</a>
+          </li>
+      <% else %>
+          <li  id="open" class="open">Hello Guest !</li> <li  id="close" style="display: none;" class="close" >Hello Guest !</li>
+          <li class="sep">|</li>
+          <li id="toggle"> <a id="open" class="open" href="#">Sign in / Sign up</a>
+            <a id="close" style="display: none;" class="close" href="#">Sign in / Sign up</a>
+          </li>
+      <% end %>
+      <li class="right">&nbsp;</li>
+    </ul>
+  </div>
+</div>
+
+
+

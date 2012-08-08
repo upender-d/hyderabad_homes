@@ -1,0 +1,15 @@
+<br/>
+<div class="center_wrap">
+  <%= form_tag :action => 'create_contacts' do %>
+      <% for i in @contacts %>
+          <div>
+            <input type="checkbox" name="email[]" id="email_<%= i %>" value="<%= i %>" />
+            <span style="color:green">name  :</span>
+            <%= i[0] %><br />
+            <span style="color:maroon">email  :</span>
+            <%= i[1] %><br />
+          </div>
+      <% end %>
+      <%= submit_tag "save contacts" %>
+  <%end%>
+</div>

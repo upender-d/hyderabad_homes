@@ -1,0 +1,59 @@
+<div class="center_wrap">
+  <h3>Nearby locations</h3>
+  <ul>
+    <% for user_property in @user_property.nearbys(10) %>
+        <li><%= link_to user_property.location, users_user_property_path(:id => user_property.id) %> (<%= user_property.distance %> miles)</li>
+    <% end %>
+  </ul>
+
+  <h2>Property details</h2>
+  <div>
+    <table border="1" style='width :100%;'>
+      <tr>
+        <td><label><b>E-mail : </b></label></td>
+        <td><%= current_user.email %></td>
+      </tr>
+      <tr>
+        <td>
+          <label><b>Location : </b></label>
+        </td>
+        <td>
+          <%= @user_property.location %>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <label><b>Property type : </b></label>
+        </td>
+        <td>
+          <%= @user_property.property_type %>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <label><b>Interested to : </b></label>
+        </td>
+        <td>
+          <%= @user_property.ownership_type %>
+        </td>
+      </tr>
+    </table>
+    <table border="1">
+      <tr>
+        <td>
+          <%= gmaps4rails(@json) %>
+        </td>
+      </tr>
+    </table>
+    <table>
+      <tr>
+        <td>
+          <%= link_to "Edit Property" , edit_users_user_property_path %>
+        </td>
+        <td>
+          <%= link_to "View All Properties" , users_user_properties_path %>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>

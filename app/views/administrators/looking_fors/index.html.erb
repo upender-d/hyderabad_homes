@@ -1,0 +1,26 @@
+<br/><br/>
+<div class="center_wrap">
+  <%if params[:search]%>
+      <div class="bread_crumb">
+        <ul>
+          <li><a href="<%= administrators_dashboard_index_path %>">Dashboard</a></li>
+          <li>»</li>
+          <li><a href="<%= administrators_looking_fors_path %>">Interested Properties</a>
+          </li>
+        </ul>
+      </div>
+  <%else%>
+      <div class="bread_crumb">
+        <ul>
+          <li><a href="<%= administrators_dashboard_index_path %>">Dashboard</a></li>
+          <li>»</li> <li>Interested Properties</li>
+        </ul>
+      </div>
+  <%end%>
+  <div class="left1">
+    <%= render "left" %>
+  </div>
+  <div id="index">
+    <%= render "index"%>
+  </div>
+</div>

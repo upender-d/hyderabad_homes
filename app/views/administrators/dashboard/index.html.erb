@@ -1,0 +1,39 @@
+<br/>
+<div class="center_wrap">
+  <div class="bread_crumb">
+    <ul>
+      <li><a href="<%= administrators_dashboard_index_path %>">Dashboard</a></li> »
+      <li><a href="<%= administrators_properties_path %>">Properties</a></li> »
+      <li><a href="<%= administrators_ownership_types_path %>">Ownership Types</a></li>»
+      <li><a href="<%= administrators_looking_fors_path %>">Interested</a></li>
+    </ul>
+  </div>
+  <div class="content_box2">
+    <h4>Welcome to Dashboard</h4>
+        <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+        <script type="text/javascript">
+            google.load("visualization", "1", {packages:["corechart"]});
+            google.setOnLoadCallback(drawChart);
+            function drawChart() {
+                var data = google.visualization.arrayToDataTable([
+
+                    ['Admin', 'User'],
+
+                    ['Users',     <%= @users.count %>],
+                     ['User Properties',      <%= @user_properties.count %>],
+                     ['Looking For Properties',     <%= @user_looking_for_properties.count %>]
+                ]);
+
+                var options = {
+                    title: 'Ownership type'  ,
+                    width: 900,
+                    height: 270
+                };
+
+                var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
+                chart.draw(data, options);
+            }
+        </script>
+    <div id="chart_div"></div>
+  </div>
+</div>

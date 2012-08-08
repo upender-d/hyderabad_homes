@@ -1,0 +1,104 @@
+<br/>
+<div class="center_wrap">
+  <div class="bread_crumb">
+    <ul>
+      <li><a href="<%= root_path %>">Home</a></li> <li>»</li> <li><a href="<%= users_dashboard_index_path %>">User Dashboard</a></li> <li>»</li> <li>User Property</li>
+    </ul>
+  </div>
+  <div class="content_box2">
+    <div class="form_box" style="width:100%; background-color:#e7e7e7;">
+      <br>
+      <% if @user_property.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(@user_property.errors.count, "error") %> prohibited this Property from being saved:</h2>
+            <ul>
+              <% @user_property.errors.full_messages.each do |msg| %>
+                  <li><%= msg %></li>
+              <% end %>
+            </ul>
+          </div>
+      <% end %>
+
+        <h2 class="heads"><span> Create User Property</span></h2>
+
+      <br/>
+
+      <%= form_for [:users,@user_property] do |f| %>
+
+          <table width="100%" border="0" class="table1">
+            <tr>
+              <td>
+                <div class="field" id="input_form" style="text-align: left; ">
+                  <label class="form_label"> Location</label><br/>
+                  <%= f.text_field :location, :name=>"addr"  %>
+                  <input type="reset" id="pick_addr" value="Pick Address" />
+                </div>
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                <div class="field">
+                  <b><label class="form_label" >Property Type </label></b><br/>
+                  <%= f.collection_select(:property_id, Property.all, :id, :name, {:prompt => "---Select---"}) %>
+                </div>
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                <div class="field">
+                  <label class="form_label">Ownership Type </label> <br/>
+                  <%= f.collection_select(:ownership_type_id, OwnershipType.all, :id, :name, {:prompt => "---Select---"}) %>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td colspan="2" align="center">
+                <%= f.submit "Create User Property", :class => 'style1' %>
+              </td>
+            </tr>
+
+          </table>
+
+      <% end %>
+
+    </div>
+
+  </div>
+
+
+  <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
+
+
+  <script type="text/javascript">
+
+      $(document).ready(function(){
+          function callback(pos, addr, addr_ext){
+              var a = addr;
+              if(addr_ext){
+                  a += '-' + addr_ext;
+              }
+              $('#input_form input[name=addr]').val(a);
+
+              var html = '<p><b>latlng:</b> ' + pos + '; <b>addr:</b> ' + addr + '; <b>addr_ext:</b> ' + addr_ext + '</p>';
+              $('#output').append(html);
+          }
+
+          var default_pos = new google.maps.LatLng(39.904214, 116.407413); // beijing, china
+          var opt = {
+              addr: 'Jubilee Hills,hyderabad',
+              pos: default_pos,
+              callback: callback,
+              width: 400,
+              height: 400
+          };
+          var addr_picker = new AddressPicker(opt);
+
+          $('#input_form input[type=reset],').click(function(){
+              addr_picker.open();
+          });
+      });
+
+  </script>
+</div>

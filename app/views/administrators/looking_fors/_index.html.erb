@@ -1,0 +1,44 @@
+<div class="content_box1">
+  <%if @looking_fors.present?%>
+
+      <h1 class="title"> List of properties  </h1>
+
+      <table border="0" class="table2" width="100%">
+        <tr>
+          <th scope="col"><%= "Property type" %></th>
+          <th scope="col">&nbsp;</th>
+          <th scope="col">&nbsp;</th>
+          <th scope="col">&nbsp;</th>
+        </tr>
+        <% @looking_fors.each do |looking_for| %>
+            <tr>
+              <td><%= looking_for.name %></td>
+              <td><a class="view"><%= link_to 'Show', [:administrators,looking_for] %></a></td>
+              <td><a class="edit"><%= link_to 'Edit', edit_administrators_looking_for_path(looking_for) %></a></td>
+              <td><a class="remove"><%= link_to 'Destroy', [:administrators,looking_for], :confirm => 'Are you sure?', :method => :delete %></a>
+              </td>
+            </tr>
+        <% end %>
+      </table>
+
+      <div style="width:auto; clear:both; margin:10px 0px 10px 0px; float:right; color:#B6316C;">
+        <h4 align="right"><%= will_paginate @looking_fors%></h4>
+      </div>
+      <span><%= link_to 'New Property',  new_administrators_looking_for_path, :class => 'read_more', :title => 'Create User Property' %></span>
+
+  <%else%>
+      <p>Currently there are no properties</p>
+      Click here to create<%= link_to 'New User Property',  new_administrators_looking_for_path , :class => 'read_more', :title => 'Create Looking for Property' %>
+
+  <%end%>
+</div>
+
+<style>
+    .content_box1
+    {
+        width:720px;
+        float:left;
+        margin-top:10px;
+        height: 245px;
+    }
+</style>

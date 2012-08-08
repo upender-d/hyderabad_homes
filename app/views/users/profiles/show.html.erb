@@ -1,0 +1,73 @@
+<br/>
+<div class="center_wrap">
+  <div class="bread_crumb">
+    <ul>
+      <li><a href="<%= root_path %>">Home</a></li> <li>»</li> <li><a href="<%= users_dashboard_index_path %>">User Dashboard</a></li> <li>»</li> <li>User Profile</li>
+    </ul>
+  </div>
+
+  <div class="content_box">
+    <h1 class="title"> User Profile </h1>
+
+    <div class="map_right">
+      <div class="buttons_size">
+        <span><%= link_to 'Update Profile',edit_users_profile_path(current_user.profile), :class => 'read_more', :title => 'update user profile' %></span>
+        <span><%= link_to 'Change Password', edit_user_registration_path, :class => 'read_more', :title => 'change host password' %></span>
+      </div>
+      <div class="location">
+        <h2 class="heads" style="margin:0px 0px 15px 0px;"><span> Location Map</span></h2>
+        <span><%= gmaps4rails(@json) %></span>
+      </div>
+
+    </div>
+
+    <div class="details">
+      <h2 class="heads"><span> Personal details</span></h2>
+
+      <table class="table" width="100%">
+        <tr>
+          <td align="right" class="label">E-mail</td>
+          <td align="left"><%= current_user.email %></td>
+        </tr>
+        <tr>
+          <td width="50%" align="right" class="label">First Name</td>
+          <td width="50%" align="left"><%= @profile.first_name %></td>
+        </tr>
+        <tr>
+          <td align="right" class="label">Last Name</td>
+          <td align="left"><%= @profile.last_name %></td>
+        </tr>
+
+        <tr>
+          <td align="right" class="label">Date of Birth</td>
+          <td align="left"><%= @profile.dob %></td>
+        </tr>
+
+        <tr>
+          <td align="right" class="label">Mobile Number</td>
+          <td align="left"><%= @profile.mobile_number %></td>
+        </tr>
+
+        <tr>
+          <td align="right" class="label">Employer</td>
+          <td align="left"><%= @profile.employer %></td>
+        </tr>
+      </table>
+      <h2 class="heads" style="margin-top:20px;"><span> Location details</span></h2>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0" class="table">
+        <tr>
+          <td>
+            <%= @profile.work_location %>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
+
+<style>
+    #gmaps4rails_map {
+        width: 425px;
+        height: 250px;
+    }
+</style>

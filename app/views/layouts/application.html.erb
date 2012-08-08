@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>HyderabadHomes</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+  <%= yield :head %>
+
+</head>
+<body id="outer">
+<div id="page">
+  <%if administrator_signed_in?%>
+      <div class="center_wrap">
+        <div style="text-align: right;">
+          <%= link_to 'Log out' , destroy_administrator_session_path, :method => :delete , :class=>"read_more" , :title => "Log out" %>
+        </div>
+      </div>
+  <%else%>
+      <div>
+        <%= render 'layouts/header' %>
+      </div>
+  <%end%>
+  <br/><br/>
+  <header id="header">
+
+    <div id="header_inner">
+      <div id="slogan"></div>
+      <div id="hiring" onClick="location.href='/jobs/'"></div>
+      <h1 id="logo">
+        <a style="background: url(/assets/tmp_logo2.png) no-repeat; width:300px; height:100px; margin-left:30px;">Hyderabad Homes</a>
+      </h1>
+      <br/><br/>
+    </div><!-- END: #header_inner-->
+    <nav>
+    </nav>
+    <!-- Then somewhere in the <body> section -->
+  </header><!-- END: #header-->
+  <section id="main-content">
+    <% flash.each do |name, msg| %>
+        <%= content_tag :div, msg, :id => "flash_#{name}" %>
+    <% end %>
+    <%= content_tag :h1, yield(:title) if show_title? %>
+    <%= yield %>
+    <%= yield :scripts %>
+
+  </section>
+  <!-- END: #main-content -->
+</div>
+<footer id="footer">
+  <section id="copyright">
+    <span class="float_left">Copyright © 2012 / All rights reserved by <a href="#" target="_blank">HYDERABAD HOMES</a>.</span>
+  </section>
+
+</footer><!-- END: #footer -->
+
+</body>
+
+</html>

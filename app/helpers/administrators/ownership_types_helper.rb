@@ -1,0 +1,2 @@
+module Administrators::OwnershipTypesHelper
+end

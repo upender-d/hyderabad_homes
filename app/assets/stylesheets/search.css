@@ -1,0 +1,38 @@
+/*  new style for table in create and update */
+.update_table{
+    /*
+     border:3px solid #356AA0;
+   border-radius: 10px 10px 10px 10px;
+   width: 500px;*/
+    background-color: #236B8E;
+    border-radius: 10px 10px 10px 10px;
+    box-shadow: 2px 2px 8px #BBBBBB, -2px 0 8px #BBBBBB;
+    font-size: 12px;
+    color: black;
+    float: right;
+    width: 250px;
+    /*height: 400px;*/
+
+}
+.update_table thead{
+    background-color:#F5F5F5;
+    text-align:left;
+    font-weight:bold;
+}
+.update_table thead th{
+    border-bottom: 1px  solid #cccccc;
+    padding:5px;
+    text-align: left;
+}
+/*.update_table tbody td{
+  *//*  text-align:left;*//*
+}*/
+ .update_table textarea, .update_table select, .update_table input{
+    margin:5px 2px 10px 0px;
+}
+
+.update_table label{
+    margin:5px 20px 10px 25px;
+    color: #FF0000;
+}
+

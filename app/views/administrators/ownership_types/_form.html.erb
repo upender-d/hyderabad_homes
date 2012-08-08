@@ -1,0 +1,42 @@
+<div class="center_wrap">
+  <div class="bread_crumb">
+    <ul>
+      <li><a href="<%= administrators_dashboard_index_path %>">Dashboard</a></li>
+      <li>»</li> <li><a href="<%= administrators_ownership_types_path %>">Properties
+    </a></li> <li>»</li> <li>New Property</li>
+    </ul>
+  </div>
+  <div class="content_box2">
+    <div class="form_box" style="width:100%; background-color:#e7e7e7;">
+      <% if @ownership_type.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(@ownership_type.errors.count, "error") %> prohibited this Property from being saved:</h2>
+            <ul>
+              <% @ownership_type.errors.full_messages.each do |msg| %>
+                  <li><%= msg %></li>
+              <% end %>
+            </ul>
+          </div>
+      <% end %>
+      <h2 class="heads"><span>Create Property</span></h2>
+      <%= form_for [:administrators,@ownership_type] do |f| %>
+          <table width="100%" border="0" class="table1">
+            <tr>
+              <td>
+                <div class="field" id="input_form" style="text-align: left; ">
+                  <label class="form_label">Property Name : &nbsp;</label><br/>
+                  <%= f.text_field :name , :class => 'textfield2' %>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td colspan="2" align="center">
+                <%= f.submit "Create Property", :class => 'style1' %>
+              </td>
+            </tr>
+          </table>
+      <%end%>
+    </div>
+
+  </div>
+</div>

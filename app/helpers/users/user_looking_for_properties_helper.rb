@@ -1,0 +1,2 @@
+module Users::UserLookingForPropertiesHelper
+end

@@ -1,0 +1,13 @@
+<br/>
+<div class="center_wrap">
+  imported successfully
+
+  <h4>List of User Contacts</h4>
+  <% if @user_contacts.blank? %>
+      <% @user_contacts.each do |user_contact| %>
+          <%= user_contact.name %>
+      <% end %>
+  <% end %>
+
+  <%= link_to "Back" , root_path %>
+</div>

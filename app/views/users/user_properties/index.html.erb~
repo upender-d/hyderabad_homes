@@ -1,0 +1,80 @@
+<br/><br/>
+<div class="center_wrap">
+
+  <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
+  <script type="text/javascript">
+
+      $(document).ready(function(){
+          function callback(pos, addr, addr_ext){
+              var a = addr;
+              if(addr_ext){
+                  a += '-' + addr_ext;
+              }
+              $('#input_form input[name=addr]').val(a);
+
+              var html = '<p><b>latlng:</b> ' + pos + '; <b>addr:</b> ' + addr + '; <b>addr_ext:</b> ' + addr_ext + '</p>';
+              $('#output').append(html);
+          }
+
+          var default_pos = new google.maps.LatLng(39.904214, 116.407413); // beijing, china
+          var opt = {
+              addr: 'Jubilee Hills,hyderabad',
+              pos: default_pos,
+              callback: callback,
+              width: 720,
+              height: 480
+          };
+          var addr_picker = new AddressPicker(opt);
+
+          $('#input_form input[type=reset],').click(function(){
+              addr_picker.open();
+          });
+      });
+
+  </script>
+
+  <%= form_tag users_user_properties_path, :method => :get do %>
+      <div id="input_form" style="text-align: left; ">
+        <%= text_field_tag :search, params[:search], :name => "addr" %>
+        <input type="reset" id="pick_addr" value="Pick Address" />
+        <%= submit_tag "Search Near" %>
+      </div> <br/>
+
+      <h1>Listing User Properties</h1>
+      <table border="1" width="800">
+        <tr>
+          <th><b><%=  "Location" %></b></th>
+          <th><b><%= "Property type" %></b></th>
+          <th><b><%= "Owner ship type" %></b></th>
+
+        </tr>
+
+        <% @user_properties.each do |user_property| %>
+            <tr>
+              <td><%= user_property.location %></td>
+              <td><%#= user_property.property_type %></td>
+              <td><%#= user_property.ownership_type %></td>
+            </tr>
+
+
+            <!--<td><%#= link_to 'Show', [:users,user_property] %></td>
+        <td><%#= link_to 'Edit', edit_users_user_property_path(user_property) %></td>
+        <td><%#= link_to 'Destroy', [:users,user_property], :confirm => 'Are you sure?', :method => :delete %>
+        </td>
+            </tr> -->
+        <% end %>
+      </table>
+  <% end %>
+  <br/>
+
+  <%= link_to 'Add New User Property',  new_users_user_property_path %>
+  <br/>
+  <br/>
+  <table style='width: 800px;'>
+    <tr>
+      <td>
+        <%= gmaps4rails(@json) %>
+      </td>
+    </tr>
+  </table>
+</div>

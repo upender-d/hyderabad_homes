@@ -1,0 +1,66 @@
+<br />
+<div class="center_wrap">
+  <% if @search_properties.blank?%>
+      <label>No results found </label><br/>
+  <%else%>
+      <table class="table2" border="0" width="100%">
+        <tr>
+          <th scope="col">&nbsp;</th>
+          <th scope="col"><%=  "Location" %></th>
+          <th scope="col"><%= "Property type" %></th>
+          <th scope="col"><%= "Owner ship type" %></th>
+        </tr>
+        <%= form_for(:user_looking_for_property,:url=>{:controller => "home", :action =>  "create_properties"}, :validate => true) do |f| %>
+            <% @search_properties.each do |property| %>
+                <tr>
+                  <!--<td>
+                    <%#= check_box_tag "search", :name => "properties[]" %>
+                    <%#= check_box_tag "property_id[#{property.id}]", property.id,:name => "property_id" %>
+                    <input type="checkbox" name="properties[]" id = "<%#= property.id %>" />
+                  </td>-->
+                  <td><%= check_box_tag "property[]", property.id %></td>
+                  <td><%= session[:location]=property.location %></td>
+                  <td><%= property.property.name %><% session[:property] = property.property.id %></td>
+                  <td><%= property.looking_for.name %><% session[:looking_for] = property.looking_for.id %></td>
+                  <%#= f.hidden_field :location, :value => property.location%>
+                  <%#= f.hidden_field :property_type, :value => property.property.id%>
+                  <%#= f.hidden_field :looking_for, :value => property.looking_for.id%>
+            <% end %>
+            </tr>
+            <tr>
+              <td colspan="4" align="center">
+                <% if user_signed_in? %>
+                    <%= f.submit "Add to favourites", :class=> "style1" %>
+                <%else%>
+                    <%= link_to "Add to Favourites" , home_add_to_cart_path , :class=>'read_more', :confirm => "Need to register" %>
+                    <%#= f.submit "add to Favourites", :class=>"style1" %>
+                <%end%>
+                <%#= link_to "Add to Favourites" , new_user_registration_path %>
+              </td>
+            </tr>
+
+        <%end%>
+      </table>
+      <table border="1">
+        <tr>
+          <td>
+            <div id="gmaps4rails_map">
+            <%= gmaps4rails(@json) %>
+                </div>
+          </td>
+        </tr>
+      </table>
+      <br/>
+  <%end%>
+  <%= link_to "Back", root_url , :class=>"read_more" %>
+</div>
+
+<style>
+  #gmaps4rails_map {
+    height: 300px;
+    width: 927px;
+}
+</style>
+
+
+

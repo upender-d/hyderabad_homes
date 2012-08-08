@@ -1,0 +1,8 @@
+body div.screensGalleryElement {
+	float: left;
+}
+
+body div.screensGalleryElement img {
+	width: 100% !important;
+	height: 100% !important;
+}

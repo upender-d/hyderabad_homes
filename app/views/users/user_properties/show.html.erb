@@ -1,0 +1,92 @@
+<br/><br/>
+
+  <!--<h3>Nearby locations</h3>
+  <ul>
+    <%# for user_property in @user_property.nearbys(10) %>
+        <li><%#= link_to user_property.location, users_user_property_path(:id => user_property.id) %> (<%#= user_property.distance %> miles)</li>
+    <%# end %>
+  </ul>-->
+   <div class="center_wrap">
+  <div class="content_box">
+    <h1 class="title"> User Property details </h1>
+
+    <div class="map_right">
+      <div class="buttons_size">
+        <span><%= link_to "Edit User Property" , edit_users_user_property_path, :class => 'read_more', :title => 'update Property' %></span>
+        <span><%= link_to "View All User Properties" , users_user_properties_path, :class => 'read_more', :title => 'Properties' %></span>
+      </div>
+      <div class="location">
+        <h2 class="heads" style="margin:0px 0px 15px 0px;"><span> Location Map</span></h2>
+        <span><%= image_tag "http://maps.google.com/maps/api/staticmap?size=425x350&sensor=false&zoom=16&markers=#{@user_property.latitude}%2C#{@user_property.longitude}" %></span>
+      </div>
+
+    </div>
+
+    <div class="details">
+      <h2 class="heads"><span> User Property Details</span></h2>
+
+      <table style="width:100%;" class="table">
+
+        <tr>
+          <td align="right" class="label">Property Type</td>
+          <td align="left"><%= @user_property.property.name %></td>
+        </tr>
+
+        <tr>
+          <td align="right" class="label">Interested to</td>
+          <td align="left"><%= @user_property.ownership_type.name %></td>
+        </tr>
+
+      </table>
+      <h2 class="heads" style="margin-top:20px;"><span> Location details</span></h2>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0" class="table">
+        <tr>
+          <td align="left"><%= @user_property.location %></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <h2 class="heads" style="margin-top:20px;"><span>List of Properties nearby your Property (within 10kms)</span></h2>
+
+
+  <div style="border:1px solid #CCC; width: 942px;">
+    <div id="gmaps4rails_map">
+      <%= gmaps4rails(@json) %>
+    </div>
+  </div>
+</div>
+
+
+<style>
+    #map-container {
+        padding: 6px;
+        border-width: 1px;
+        border-style: solid;
+        border-color: #ccc #ccc #999 #ccc;
+        -webkit-box-shadow: rgba(64, 64, 64, 0.5) 0 2px 5px;
+        -moz-box-shadow: rgba(64, 64, 64, 0.5) 0 2px 5px;
+        box-shadow: rgba(64, 64, 64, 0.1) 0 2px 5px;
+        width: 800px;
+    }
+
+    #gmaps4rails_map {
+        width: 940px;
+        height: 250px;
+    }
+
+    #actions {
+        list-style: none;
+        padding: 0;
+    }
+
+    #inline-actions {
+        padding-top: 10px;
+    }
+
+    .item {
+        margin-left: 20px;
+    }
+</style>
+
+

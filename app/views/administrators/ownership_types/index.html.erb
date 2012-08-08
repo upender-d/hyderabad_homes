@@ -1,0 +1,25 @@
+<br/><br/>
+<div class="center_wrap">
+  <% if params[:search] %>
+      <div class="bread_crumb">
+        <ul>
+          <li><a href="<%= administrators_dashboard_index_path %>">Dashboard</a></li>
+          <li>»</li>
+          <li><a href="<%= administrators_ownership_types_path %>">Ownership Types</a>
+          </li>
+        </ul>
+      </div>
+  <%else%>
+      <div class="bread_crumb">
+        <ul>
+          <li><a href="<%= administrators_dashboard_index_path %>">Dashboard</a></li> <li>»</li> <li>Ownership Types</li>
+        </ul>
+      </div>
+  <% end %>
+  <div class="left1">
+    <%= render "left" %>
+  </div>
+  <div id="index">
+    <%= render "index"%>
+  </div>
+</div>

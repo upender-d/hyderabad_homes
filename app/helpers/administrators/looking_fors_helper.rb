@@ -1,0 +1,2 @@
+module Administrators::LookingForsHelper
+end

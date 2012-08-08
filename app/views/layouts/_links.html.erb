@@ -1,0 +1,74 @@
+<% if user_signed_in? %>
+    <div class="left right" style="border-left:0px;">
+      <ul style="margin-top:15px; line-height:30px;">
+        <%if current_user.profile.nil?%>
+            <li><%= link_to "Home" , root_url %></li>
+            <li><%= link_to 'Create Profile',new_users_profile_path, :title => 'create user profile' %> </li>
+            <li><%= link_to "Dashboard" , users_dashboard_index_path %>    </li>
+            <li><%= link_to "View User Properties" , users_user_properties_path %>  </li>
+            <li> <%= link_to "User Looking for Properties" , users_user_looking_for_properties_path %></li>
+        <%else%>
+            Hello, <%= current_user.profile.first_name %>
+            <li><%= link_to "Home" , root_url %></li>
+            <li><%= link_to 'Create Profile',edit_users_profile_path(:id=> current_user.id), :title => 'update user profile' %> </li>
+            <li><%= link_to "View Profile" , users_profile_path(:id => current_user.profile.id)%></li>
+            <li><%= link_to "User Dashboard" , users_dashboard_index_path %> </li>
+            <li><%#= link_to "View User Properties" , users_user_properties_path %>  </li>
+            <li><%#= link_to "View User Looking for Properties" , users_user_looking_for_properties_path %></li>
+        <%end%>
+        <li><%= link_to 'Logout', destroy_user_session_path, :method => :delete %></li>
+      </ul>
+    </div>
+    <div class="left center" style="border-left:0px;">
+      <ul style="margin-top:15px; line-height:30px;">
+        <li><%#= link_to "Property" , new_users_property_path %>    </li>
+        <li><%#= link_to "Ownership Type" , new_users_ownership_type_path %>  </li>
+        <li> <%#= link_to "Looking for Property" , new_users_looking_for_path %></li>
+      </ul>
+    </div>
+<% else %>
+
+    <div class="left right">
+      <!-- Login Form -->
+      <h1>User Sign in</h1>
+      New User ? <%= link_to "Signup",new_user_registration_path,:title => "User registration"  %> here.
+      <%= form_for(:user,:url => user_session_path) do |f| %>
+          <%= f.label :email, :class=>"grey", :for =>"log" %>
+          <%= f.text_field :email, :class=>"field", :id=> "log", :size=> "23", :autocomplete => 'off'%>
+          <%= f.label :password, :class=>"grey", :for =>"pwd" %>
+          <%= f.password_field :password, :class=>"field", :id=>"pwd", :size=>"23"%>
+          <label>
+            <%= f.check_box :remember_me , :value=>"forever", :id=>"remember_me" %>
+            &nbsp;Remember me</label>
+          <div class="clear"></div>
+          <br/>
+          <%= f.submit "Sign In", :class=>"search_button",:title => "User login" , :class => 'style1'  %>
+          <%#= link_to "Lost your password?", new_password_path(resource_name), :class => 'lost-pwd' %><br />
+      <% end %>
+    </div>
+<% end %>
+
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<script type="text/javascript">
+    google.load("visualization", "1", {packages:["corechart"]});
+    google.setOnLoadCallback(drawChart);
+    function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+            ['UserProperties', 'Looking For Properties  '],
+            ['User properties',<%= User.joins(:user_properties).count %>] ,
+            ['Looking for Properties',<%= User.joins(:user_looking_for_properties).count %>]
+            /*['rented',     <%#= @ownership_type_rent.count %>],
+             ['owned',      <%#= @ownership_type_owned.count %>],
+             ['leased',     <%#= @ownership_type_leased.count %>]*/
+        ]);
+
+        var options = {
+            title: 'User Properties'  ,
+            width: 300,
+            height: 200
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+    }
+</script>

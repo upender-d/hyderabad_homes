@@ -1,0 +1,106 @@
+<br/><br/>
+<!--<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>-->
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
+<div class="center_wrap">
+  <%= form_for [:users,@profile] do |f| %>
+
+      <% if @profile.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(@profile.errors.count, "error") %> prohibited this category from being saved:</h2>
+
+            <ul>
+              <% @profile.errors.full_messages.each do |msg| %>
+                  <li><%= msg %></li>
+              <% end %>
+            </ul>
+          </div>
+      <% end %>
+
+      <div class="field">
+        <b><%= f.label :first_name %></b> <br/>
+        <%= f.text_field :first_name %>
+      </div>
+      <div class="field">
+        <b><%= f.label :last_name %></b><br/>
+        <%= f.text_field :last_name %>
+      </div>
+
+      <div class="field">
+        <b><%= f.label :dob %></b>  <br/>
+        <%#= f.text_field :dob , :id => "datepick"  %>
+        <%#= text_field_tag :dob, nil, :readonly=>'true', :id => "datepick" %>
+        <%= f.text_field :dob , :id => "datepick",:readonly => :true %>
+      </div>
+      <div class="field">
+        <% if @profile.new_record? %>
+            <b> Gender : </b><%= f.radio_button :gender,1  %> Male &nbsp;<%= f.radio_button :gender,0 %>Female
+        <%else%>
+            <b>Gender:</b> <br />
+            <% if @profile.gender? %>
+                <%= f.radio_button :gender,1,:checked =>true %> Male &nbsp;
+                <%= f.radio_button :gender,0 %>Female
+            <% else %>
+                <%= f.radio_button :gender,1 %> Male &nbsp;
+                <%= f.radio_button :gender,0,:checked =>true %>Female
+            <% end %>
+        <%end%>
+      </div>
+      <div class="field">
+        <b><%= f.label :mobile_number %></b><br/>
+        <%= f.text_field :mobile_number %>
+      </div>
+      <div class="field">
+        <b><%= f.label :alternate_number %></b><br/>
+        <%= f.text_field :alternate_number %>
+      </div>
+        <div class="field" id="input_form" style="text-align: left; ">
+        <b><%= f.label :work_location %></b><br/>
+        <%= f.text_field :work_location , :name=>"addr" %>
+        <input type="reset" id="pick_addr" value="Pick Address" />
+      </div>
+      <!--<tr>
+          <td><label><b>Work Location : </b></label></td>
+          <td>
+            <%#= f.text_field :work_location , :class => "dob-style1", :id=> "map_canvas" , :name => "addr" %>
+          </td>
+        </tr>-->
+      <div class="field">
+        <b><%= f.label :employer %></b><br/>
+        <%= f.text_field :employer %>
+      </div>
+      <div class="field">
+        <%= f.submit %>
+      </div>
+  <% end %>
+</div>
+
+<script type="text/javascript">
+
+    $(document).ready(function(){
+        function callback(pos, addr, addr_ext){
+            var a = addr;
+            if(addr_ext){
+                a += '-' + addr_ext;
+            }
+            $('#input_form input[name=addr]').val(a);
+
+            var html = '<p><b>latlng:</b> ' + pos + '; <b>addr:</b> ' + addr + '; <b>addr_ext:</b> ' + addr_ext + '</p>';
+            $('#output').append(html);
+        }
+
+        var default_pos = new google.maps.LatLng(39.904214, 116.407413); // beijing, china
+        var opt = {
+            addr: 'jubleehills,hyderabad',
+            pos: default_pos,
+            callback: callback,
+            width: 500,
+            height: 380
+        };
+        var addr_picker = new AddressPicker(opt);
+
+        $('#input_form input[type=reset],').click(function(){
+            addr_picker.open();
+        });
+    });
+
+</script>

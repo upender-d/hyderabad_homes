@@ -1,0 +1,36 @@
+body div.light_square .pp_left,
+body div.light_square .pp_middle,
+body div.light_square .pp_right{
+	background: none;
+}
+body div.light_square .pp_content {
+	background: url(light-images/iphone_emulator_bg.png) no-repeat;
+	padding: 123px 23px 80px 35px;
+}
+
+body div.light_square .pp_close {
+	width: 27px;
+	height: 22px;
+	background: url(light-images/prettyPhoto/light_square/sprite.png) -52px -1px no-repeat;
+	cursor: pointer;
+	margin: 17px -47px;
+}
+
+#sidebar a.startAppLink{
+	height: 29px;
+	display: inline-block;
+	padding: 5px;
+}
+
+#sidebar a.startAppLink span{
+	background: url(light-images/start_app_icon.png) no-repeat;
+	background-position: left top;
+	display: inline-block;
+	height: 29px;
+	padding-left: 35px;
+}
+
+#sidebar a.startAppLink:focus span,
+#sidebar a.startAppLink:hover span{
+	background-position:left bottom;
+}

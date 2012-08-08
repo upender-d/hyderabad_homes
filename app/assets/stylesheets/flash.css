@@ -1,0 +1,29 @@
+#flash_notice
+{
+    background: #add8e6;
+    color: #080808;
+    margin-left: 205px;
+    margin-right: 205px;
+    margin-top: 20px;
+    padding: 1px 0px 1px 20px;
+}
+
+#error_explanation
+{
+    background: lightpink;
+    color: maroon;
+    margin-left: 205px;
+    margin-right: 205px;
+    margin-top: 20px;
+    padding: 5px 0px 5px 16px;
+}
+#flash_alert
+{
+    background: lightpink;
+    color: maroon;
+    margin-left: 205px;
+    margin-right: 205px;
+    margin-top: 20px;
+    padding: 5px 0px 5px 16px;
+}
+
