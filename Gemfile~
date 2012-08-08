@@ -18,7 +18,7 @@ gem 'geocoder'
 gem 'gmaps4rails', '0.7.7'
 
 gem 'contacts'
-gem 'gdata', git: 'https://github.com/agentrock/gdata.git'# to fix no such file to load — jcode (LoadError),
+gem 'gdata'
 gem 'hpricot'
 
 # Gems used only for assets and not required
