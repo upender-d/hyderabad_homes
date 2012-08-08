@@ -51,3 +51,6 @@ gem 'jquery-rails'
 # gem 'ruby-debug19', :require => 'ruby-debug'
 gem 'pg'
 gem 'spatial_adapter'
+
+gem 'execjs'
+gem 'therubyracer', :platforms => :ruby
