@@ -24,11 +24,11 @@
       <div style="width:auto; clear:both; margin:10px 0px 10px 0px; float:right; color:#B6316C;">
         <h4 align="right"><%= will_paginate @ownership_types%></h4>
       </div>
-      <span><%= link_to 'New Property',  new_administrators_ownership_type_path, :class => 'read_more', :title => 'Create User Property' %></span>
+      <span><%= link_to 'New Property',  new_administrators_ownership_type_path, :class => 'read_more', :title => 'Create Property' %></span>
 
   <%else%>
       <p>Currently there are no properties</p>
-      Click here to create<%= link_to 'New User Property',  new_administrators_ownership_type_path , :class => 'read_more', :title => 'Create Looking for Property' %>
+      Click here to create &nbsp;&nbsp;<%= link_to 'New Property',  new_administrators_ownership_type_path , :class => 'read_more', :title => 'Create Property' %>
 
   <%end%>
 </div>

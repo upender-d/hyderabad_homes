@@ -14,8 +14,8 @@
 ActiveRecord::Schema.define(:version => 20120731101933) do
 
   create_table "administrators", :force => true do |t|
-    t.string   "email",                                :default => "",       :null => false
-    t.string   "encrypted_password",                   :default => "",       :null => false
+    t.string   "email",                                :default => "",            :null => false
+    t.string   "encrypted_password",                   :default => "",            :null => false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -24,14 +24,14 @@ ActiveRecord::Schema.define(:version => 20120731101933) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.string   "status",                 :limit => 10, :default => "Active", :null => false
-    t.string   "role",                   :limit => 20,                       :null => false
+    t.string   "status",                 :limit => 10, :default => "Active",      :null => false
+    t.string   "role",                   :limit => 20, :default => "Super Admin", :null => false
     t.string   "first_name",             :limit => 25
     t.string   "middle_name",            :limit => 25
     t.string   "last_name",              :limit => 25
-    t.string   "mobile_number",          :limit => 15,                       :null => false
-    t.datetime "created_at",                                                 :null => false
-    t.datetime "updated_at",                                                 :null => false
+    t.string   "mobile_number",          :limit => 15,                            :null => false
+    t.datetime "created_at",                                                      :null => false
+    t.datetime "updated_at",                                                      :null => false
   end
 
   add_index "administrators", ["email"], :name => "index_administrators_on_email", :unique => true

@@ -20,7 +20,7 @@ class DeviseCreateAdministrators < ActiveRecord::Migration
       t.string   :last_sign_in_ip
 
       t.string :status,       :limit => 10, :null => false, :default => "Active"
-      t.string :role,         :limit => 20, :null => false
+      t.string :role,         :limit => 20, :null => false , :default => "Super Admin"
       t.string :first_name,   :limit => 25
       t.string :middle_name,  :limit => 25
       t.string :last_name,    :limit => 25
