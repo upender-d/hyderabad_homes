@@ -37,7 +37,6 @@
     <!-- Then somewhere in the <body> section -->
   </header><!-- END: #header-->
   <section id="main-content">
-    <br/>
     <% if administrator_signed_in? %>
     <% else %>
         <div id="navigation">
@@ -47,7 +46,6 @@
             <li><a href="<%= home_contact_us_path %>" title="Contact Share a meal">Contact Us</a></li>
           </ul>
         </div>
-        <br/>
     <%end%>
     <% flash.each do |name, msg| %>
         <%= content_tag :div, msg, :id => "flash_#{name}" %>
