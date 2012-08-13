@@ -19,13 +19,10 @@
           </div>
       <% end %>
 
-        <h2 class="heads"><span> Create User Property</span></h2>
-
-      <br/>
-
+      <h2 class="heads"><span> Create User Property</span></h2>
       <%= form_for [:users,@user_property] do |f| %>
 
-          <table width="100%" border="0" class="table1">
+          <table style="width:100%;" border="0" class="table1">
             <tr>
               <td>
                 <div class="field" id="input_form" style="text-align: left; ">
@@ -39,7 +36,7 @@
             <tr>
               <td>
                 <div class="field">
-                  <b><label class="form_label" >Property Type </label></b><br/>
+                  <label class="form_label" >Property Type </label><br/>
                   <%= f.collection_select(:property_id, Property.all, :id, :name, {:prompt => "---Select---"}) %>
                 </div>
               </td>
@@ -48,13 +45,13 @@
             <tr>
               <td>
                 <div class="field">
-                  <label class="form_label">Ownership Type </label> <br/>
+                  <label class="form_label">Ownership Type </label><br/>
                   <%= f.collection_select(:ownership_type_id, OwnershipType.all, :id, :name, {:prompt => "---Select---"}) %>
                 </div>
               </td>
             </tr>
             <tr>
-              <td colspan="2" align="center">
+              <td colspan="2" style = "align: center;">
                 <%= f.submit "Create User Property", :class => 'style1' %>
               </td>
             </tr>

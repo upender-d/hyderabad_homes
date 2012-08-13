@@ -10,7 +10,7 @@
       <h2 class="heads"><span>Sign in</span></h2>
 
       <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
-          <table width="100%" border="0" class="table1">
+          <table style = "width: 100%;" border="0" class="table1">
             <tr>
               <td>
                 <div><%= f.label :email %><br />
@@ -32,14 +32,14 @@
               </td>
             </tr>
             <tr>
-              <td colspan="2" align="center">
+              <td colspan="2" style ="align: center;">
                 <%= f.submit "Sign in" , :class => 'style1' %>
               </td>
             </tr>
           </table>
       <% end %>
 
-      <%= render "links" %>
+      <%= render "/users/links" %>
     </div>
   </div>
 </div>

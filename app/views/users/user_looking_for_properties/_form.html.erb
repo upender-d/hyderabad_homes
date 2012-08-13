@@ -19,36 +19,30 @@
           </div>
       <% end %>
       <h2 class="heads"><span>Create New Looking For Property</span></h2>
-      <br/>
 
-      Note:&nbsp;  Following * fields are mandatory
-      <br/>
       <%= form_for [:users,@user_looking_for_property] do |f| %>
-
-          <table width="100%" border="0" class="table1">
+          <table style="width: 100%;" border="0" class="table1">
             <tr>
               <td>
                 <div id="input_form" style="text-align: left; ">
-                  <label class="form_label"> Location</label>
+                  <label class="form_label"> Location : &nbsp;</label> <br/>
                   <%= f.text_field :location, :name=>"addr"  %>
                   <input type="reset" id="pick_addr" class="myButton" />
                 </div>
               </td>
             </tr>
-
             <tr>
               <td>
                 <div>
-                  <b><label class="form_label" >Property Type </label></b>
+                  <label class="form_label" >Property Type : &nbsp; </label> <br/>
                   <%= f.collection_select(:property_id, Property.all, :id, :name, {:prompt => "---Select---"}) %>
                 </div>
               </td>
             </tr>
-
             <tr>
               <td>
                 <div>
-                  <label class="form_label">Interested To </label>
+                  <label class="form_label">Interested To : &nbsp;</label> <br/>
                   <%= f.collection_select(:looking_for_id, LookingFor.all, :id, :name, {:prompt => "---Select---"}) %>
                 </div>
               </td>
@@ -58,18 +52,12 @@
                 <%= f.submit "Create Looking For Property", :class => 'style1' %>
               </td>
             </tr>
-
           </table>
-
       <% end %>
-
     </div>
-
   </div>
 
-
   <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
-
 
   <script type="text/javascript">
 

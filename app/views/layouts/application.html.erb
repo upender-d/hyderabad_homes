@@ -36,8 +36,22 @@
     <!-- Then somewhere in the <body> section -->
   </header><!-- END: #header-->
   <section id="main-content">
-    <br/>
-    <% if administrator_signed_in? %>
+    <% flash.each do |name, msg| %>
+        <%= content_tag :div, msg, :id => "flash_#{name}" %>
+    <% end %>
+    <%= content_tag :h1, yield(:title) if show_title? %>
+      <br/>
+    <% if user_signed_in? %>
+
+    <% elsif administrator_signed_in? %>
+        <div id="navigation">
+          <ul class="sf-menu">
+            <li><a href="<%= administrator_dashboard_path %>">Dashboard</a></li>
+            <li><a href="<%= administrator_properties_path %>" title="View Properties">Properties</a></li>
+            <li><a href="<%= administrator_ownership_types_path %>" title="View Ownership types">Ownership Types</a></li>
+            <li><a href="<%= administrator_looking_fors_path %>" title="View Ownership types">Interested</a></li>
+          </ul>
+        </div>
     <% else %>
         <div id="navigation">
           <ul class="sf-menu">
@@ -47,10 +61,6 @@
           </ul>
         </div>
     <%end%>
-    <% flash.each do |name, msg| %>
-        <%= content_tag :div, msg, :id => "flash_#{name}" %>
-    <% end %>
-    <%= content_tag :h1, yield(:title) if show_title? %>
     <%= yield %>
     <%= yield :scripts %>
 
