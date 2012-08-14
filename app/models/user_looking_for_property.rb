@@ -17,7 +17,7 @@ class UserLookingForProperty < ActiveRecord::Base
 
   class << self
     def search(prop_type,looking_for,location)
-      joins(:property,:looking_for).where("(properties.id = :prop_type OR looking_fors.id = :looking_for OR user_looking_for_properties.location = :location)",:prop_type => prop_type,:looking_for=> looking_for,:location => location)
+      joins(:property,:looking_for).select_for_search.where("(properties.id = :prop_type OR looking_fors.id = :looking_for OR user_looking_for_properties.location = :location)",:prop_type => prop_type,:looking_for=> looking_for,:location => location)
     end
   end
 

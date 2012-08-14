@@ -22,26 +22,26 @@
                         </thead>
                         <tbody>
                         <tr>
-                          <td align="right" width="20%"> Location: </td>
+                          <td style ="align: right; width: 20%;"> Location: </td>
                           <td>
-                            <%= text_field_tag :search, params[:search], :name => "addr" , :class=>"textfield2" %>
+                            <%= text_field_tag :search, params[:search], :name => "addr" , :class=>"text_field" %>
                             <input type="reset" id="pick_addr" value="Pick Address" class="myButton" />
                           </td>
                         </tr>
                         <tr>
-                          <td align="right" width="25%"> I want to : </td>
+                          <td style="align: right; width: 25%;"> I want to : </td>
                           <td >
                             <%= f.collection_select(:looking_for_id, LookingFor.all, :id, :name, {:prompt => "---Select---"} , :class => "style1")  %>
                           </td>
                         </tr>
                         <tr>
-                          <td align="right" width="25%"> Property Type : </td>
+                          <td style="align: right; width: 25%;"> Property Type : </td>
                           <td >
                             <%= f.collection_select(:property_id,Property.all , :id, :name, {:prompt => "---Select---"} , :class => "style1") %>
                           </td>
                         </tr>
                         <tr>
-                          <td colspan="2" align="center">
+                          <td colspan="2" style="align: center;">
                             <%= f.submit "Search", :title => "Search Options" , :class=> 'style1' %>
                           </td>
                         </tr>

@@ -7,7 +7,7 @@ class HomeController < ApplicationController
 
     @search_properties = UserLookingForProperty.search(params[:search][:property_id],params[:search][:looking_for_id],params[:addr])
     puts "ddddddddddddddddddddddddd",@search_properties.count
-    @json = UserLookingForProperty.search(params[:search][:property_id],params[:search][:looking_for_id],params[:addr]).to_gmaps4rails
+    @json = UserLookingForProperty.all.to_gmaps4rails
 
 # @carts = [Cart.new]
   end
@@ -33,7 +33,7 @@ class HomeController < ApplicationController
 
   def add_to_favourites
     @search_properties = UserLookingForProperty.search(session[:property],session[:looking_for],session[:location])
-    @json = UserLookingForProperty.search(session[:property],session[:looking_for],session[:location]).to_gmaps4rails
+    @json = UserLookingForProperty.all.to_gmaps4rails
   end
 
   def create_properties

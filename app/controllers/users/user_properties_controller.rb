@@ -3,14 +3,13 @@ class Users::UserPropertiesController < ApplicationController
   before_filter :authenticate_user!
 
   def index
-
     if params[:addr].present?
-
+      puts'222222222222222222222222222222222222222',params
       @user_properties = UserProperty.near(params[:addr], 50, :order => :distance).where(:user_id=> current_user.id).paginate(:page => params[:page], :per_page => params[:per_page] , :order =>"created_at  DESC")
-      @json = UserProperty.near(params[:addr], 50, :order => :distance).where(:user_id=> current_user.id).paginate(:page => params[:page], :per_page => params[:per_page] , :order =>"created_at  DESC").to_gmaps4rails
+      @json = UserProperty.all.to_gmaps4rails
     else
       @user_properties = UserProperty.where(:user_id => current_user.id).paginate(:page => params[:page], :per_page => params[:per_page] , :order =>"created_at  DESC")
-      @json = UserProperty.where(:user_id=>current_user.id).paginate(:page => params[:page], :per_page => params[:per_page] , :order =>"created_at  DESC").to_gmaps4rails
+      @json = UserProperty.all.to_gmaps4rails
     end
   end
 

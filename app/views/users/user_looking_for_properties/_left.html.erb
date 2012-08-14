@@ -2,14 +2,42 @@
   <ul>
     <li>
       <h1 class="title"> Quick Search </h1>
-      <br>
       <%= form_tag users_user_looking_for_properties_path, :method => :get do %>
-            <div id="input_form" >
-              <%= text_field_tag :search, params[:search], :name => "addr", :class=>"textfield2" ,:value=>'Search Location',:onfocus=>"if(this.value=='Search Location'){ this.value=''; this.style.color='#999999';}",:onblur=>"if(this.value=='') {this.value='Search Location';this.style.color='grey';}" %>
-              <input type="reset" id="pick_addr" class="myButton" />
-               <%= image_submit_tag("search.png") %>
-            </div> <br/>
-
+          <div id="input_form" >
+            <%= text_field_tag :search, params[:search], :name => "addr", :class=>"text_field" ,:value=>'Search Location',:onfocus=>"if(this.value=='Search Location'){ this.value=''; this.style.color='#999999';}",:onblur=>"if(this.value=='') {this.value='Search Location';this.style.color='grey';}" %>
+            <input type="reset" id="pick_addr" class="myButton" />
+            <%= image_submit_tag("search.png") %>
+          </div>
+      <% end %>
+    </li>
+  </ul>
+  <ul>
+    <li>
+      <h1 class="title"> Advanced Search </h1>
+      <%= form_tag users_user_looking_for_properties_path, :method=>'get' ,:remote=> true do %>
+          <table>
+            <tr>
+              <td>
+                <div>
+                  <label class="form_label">Property Type</label>
+                  <%= text_field_tag :name,params[:name] ,:class =>"text_field2" , :value => 'Search Property' , :onfocus=>"if(this.value=='Search Property'){ this.value=''; this.style.color='#999999';}",:onblur=>"if(this.value=='') {this.value='Search Property';this.style.color='grey';}" %>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div>
+                  <label class="form_label">Interested Type</label>
+                  <%= text_field_tag :location,params[:location] , :class =>"text_field" , :value => 'Search Interested', :onfocus=>"if(this.value=='Search Interested'){ this.value=''; this.style.color='#999999';}",:onblur=>"if(this.value=='') {this.value='Search Interested';this.style.color='grey';}" %>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td colspan="2" style="align: left;">
+                <%= submit_tag "Search",:class =>'style1' %>
+              </td>
+            </tr>
+          </table>
       <% end %>
     </li>
   </ul>

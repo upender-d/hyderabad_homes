@@ -253,7 +253,7 @@ textarea.style1{
     height: 10px;
     border: none;*/
     width: 15px;
-    height: 25px;
+    height: 33px;
     margin: 0;
     padding: 0;
     border: 0;
@@ -416,7 +416,7 @@ label.form_label
     font-size:11px;
 }
 
-.textfield2 {
+.text_field {
     color: #999999;
     float: left;
     font-family: Helvetica;
@@ -424,7 +424,7 @@ label.form_label
     height: 15px;
     margin-bottom: 0;
     margin-right: 0;
-    width: 137px;
+    width: 110px;
 }
 .textfield1 {
     color: #999999;
