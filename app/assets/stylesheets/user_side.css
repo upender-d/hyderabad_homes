@@ -317,7 +317,7 @@ label.form_label
 
 #navigation{
     width:940px;
-    margin:0px auto;
+    margin:-5px auto;
     height:25px;
     padding-top:1px;
     background-color: #030303;
