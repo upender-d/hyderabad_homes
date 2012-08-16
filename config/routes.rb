@@ -3,7 +3,9 @@ HyderabadHomes::Application.routes.draw do
   devise_for :administrators , :controllers => {:sessions => "administrators/sessions",:registrations => "administrators/registrations"}
 
   namespace :administrators do
-    resources :dashboard
+    resources :dashboard do
+      get "users_list" , :on => :collection
+    end
     resources :properties
     resources :ownership_types
     resources :looking_fors

@@ -1,0 +1,36 @@
+<div class="content_box1">
+  <%if @users.present?%>
+
+      <h1 class="title"> List of Users  </h1>
+
+      <table border="0" class="table2" width="100%">
+        <tr>
+          <th scope="col"><%= "Email" %></th>
+
+        </tr>
+        <% @users.each do |property| %>
+            <tr>
+              <td><%= property.email %></td>
+            </tr>
+        <% end %>
+      </table>
+
+
+      <span><%= link_to 'New Property',  new_administrators_property_path, :class => 'read_more', :title => 'Create Property' %></span>
+
+  <%else%>
+      <p>Currently there are no properties</p>
+      Click here to create &nbsp;&nbsp;<%= link_to 'New Property',  new_administrators_property_path , :class => 'read_more', :title => 'Create Property' %>
+
+  <%end%>
+</div>
+
+<style>
+    .content_box1
+    {
+        width:720px;
+        float:left;
+        margin-top:10px;
+        height: 245px;
+    }
+</style>

@@ -1,15 +1,13 @@
-<br/><br/>
-
-  <!--<h3>Nearby locations</h3>
+<br/>
+<!--<h3>Nearby locations</h3>
   <ul>
     <%# for user_property in @user_property.nearbys(10) %>
         <li><%#= link_to user_property.location, users_user_property_path(:id => user_property.id) %> (<%#= user_property.distance %> miles)</li>
     <%# end %>
   </ul>-->
-   <div class="center_wrap">
+<div class="center_wrap">
   <div class="content_box">
     <h1 class="title"> User Property details </h1>
-
     <div class="map_right">
       <div class="buttons_size">
         <span><%= link_to "Edit User Property" , edit_users_user_property_path, :class => 'read_more', :title => 'update Property' %></span>
@@ -19,29 +17,27 @@
         <h2 class="heads" style="margin:0px 0px 15px 0px;"><span> Location Map</span></h2>
         <span><%= image_tag "http://maps.google.com/maps/api/staticmap?size=425x350&sensor=false&zoom=16&markers=#{@user_property.latitude}%2C#{@user_property.longitude}" %></span>
       </div>
-
     </div>
-
     <div class="details">
       <h2 class="heads"><span> User Property Details</span></h2>
 
       <table style="width:100%;" class="table">
 
         <tr>
-          <td align="right" class="label">Property Type</td>
-          <td align="left"><%= @user_property.property.name %></td>
+          <td style="align:right;" class="label">Property Type</td>
+          <td style="align:left;"><%= @user_property.property.name %></td>
         </tr>
 
         <tr>
-          <td align="right" class="label">Interested to</td>
-          <td align="left"><%= @user_property.ownership_type.name %></td>
+          <td style="align:right;" class="label">Interested to</td>
+          <td style="align:left;"><%= @user_property.ownership_type.name %></td>
         </tr>
 
       </table>
       <h2 class="heads" style="margin-top:20px;"><span> Location details</span></h2>
-      <table width="100%" border="0" cellspacing="0" cellpadding="0" class="table">
+      <table style="width: 100%; border: 0; cellspacing: 0; cellpadding: 0;" class="table">
         <tr>
-          <td align="left"><%= @user_property.location %></td>
+          <td style="align: left;"><%= @user_property.location %></td>
         </tr>
       </table>
     </div>
