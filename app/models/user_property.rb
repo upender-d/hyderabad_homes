@@ -1,8 +1,7 @@
 class UserProperty < ActiveRecord::Base
   attr_accessible :is_current_location, :latitude, :location, :longitude, :ownership_type_id, :user_id, :property_id
 
-  cattr_reader :per_page
-  @@per_page = 3
+  @per_page = 3
 
   belongs_to :user
   belongs_to :property

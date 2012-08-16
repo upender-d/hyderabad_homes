@@ -1,8 +1,7 @@
 class Property < ActiveRecord::Base
   attr_accessible :name
 
-  cattr_reader :per_page
-  @@per_page = 3
+  @per_page = 3
 
   has_many :user_properties
   has_many :user_looking_for_properties
