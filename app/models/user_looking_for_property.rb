@@ -18,6 +18,11 @@ class UserLookingForProperty < ActiveRecord::Base
     def search(prop_type,looking_for,location)
       joins(:property,:looking_for).select_for_search.where("(properties.id = :prop_type OR looking_fors.id = :looking_for OR user_looking_for_properties.location = :location)",:prop_type => prop_type,:looking_for=> looking_for,:location => location)
     end
+
+    def search_properties(location,prop_type,looking_type)
+      joins(:property,:looking_for).select_for_search.where("user_looking_for_properties.location = :location OR properties.name = :prop_type OR looking_fors.name = :looking_type",:location => location , :prop_type => prop_type,:looking_type=> looking_type)
+    end
+
   end
 
   after_validation :geocode, :if => :location_changed?

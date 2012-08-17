@@ -1,7 +1,7 @@
 <div class="center_wrap">
   <div class="bread_crumb">
     <ul>
-      <li><a href="<%= root_path %>">Home</a></li> <li>»</li> <li>Search User Properties</li>
+      <li><a href="<%= root_path %>">Home</a></li> <li>»</li> <li>Search User Looking For Properties</li>
     </ul>
   </div>
   <% if @search_properties.blank?%>
@@ -12,13 +12,13 @@
         <tr>
           <th scope="col"><%=  "Location" %></th>
           <th scope="col"><%= "Property type" %></th>
-          <th scope="col"><%= "Owner ship type" %></th>
+          <th scope="col"><%= "Looking for type" %></th>
         </tr>
         <% @search_properties.each do |property|%>
             <tr>
               <td><%= property.location %></td>
               <td><%= property.property.name %></td>
-              <td><%= property.ownership_type.name %></td>
+              <td><%= property.looking_for.name %></td>
 
             </tr>
         <%end%>

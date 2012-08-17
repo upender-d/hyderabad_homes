@@ -53,4 +53,10 @@ class Users::UserLookingForPropertiesController < ApplicationController
     @user_looking_for_property.destroy
     redirect_to users_user_looking_for_properties_path
   end
+
+  def search_properties_looking
+    @search_properties = UserLookingForProperty.search_properties(params[:addr],params[:search][:property_id],params[:search][:looking_for_id])
+    @json = UserLookingForProperty.all.to_gmaps4rails
+  end
+
 end

@@ -42,7 +42,9 @@ HyderabadHomes::Application.routes.draw do
       post "search_properties_user", :on => :collection
       #get "add_to_cart" , :on => :collection
     end
-    resources :user_looking_for_properties
+    resources :user_looking_for_properties do
+      post "search_properties_looking" , :on => :collection
+    end
 
   end
 

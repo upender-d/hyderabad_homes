@@ -3,7 +3,7 @@
 
       <h1 class="title"> List of User properties  </h1>
 
-      <table border="0" class="table2" width="100%">
+      <table style="border: 0; width: 100%;" class="table2">
         <tr>
           <th scope="col"><%=  "Location" %></th>
           <th scope="col"><%= "Property type" %></th>
@@ -26,7 +26,7 @@
       </table>
 
       <div style="width:auto; clear:both; margin:10px 0px 10px 0px; float:right; color:#B6316C;">
-        <h4 align="right"><%= will_paginate @user_properties%></h4>
+        <h4 style="align: right;"><%= will_paginate @user_properties%></h4>
       </div>
      <span><%= link_to 'New User Property',  new_users_user_property_path, :class => 'read_more', :title => 'Create User Property' %></span>
       <table>

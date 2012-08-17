@@ -4,7 +4,6 @@ class Users::UserPropertiesController < ApplicationController
 
   def index
     if params[:addr].present?
-      puts'222222222222222222222222222222222222222',params
       @user_properties = UserProperty.near(params[:addr], 50, :order => :distance).where(:user_id=> current_user.id).paginate(:page => params[:page], :per_page => params[:per_page] , :order =>"created_at  DESC")
       @json = UserProperty.all.to_gmaps4rails
     else
@@ -55,8 +54,8 @@ class Users::UserPropertiesController < ApplicationController
   end
 
   def search_properties_user
-    @search_properties = UserProperty.search_properties(params[:addr],params[:search][:ownership_type_id],params[:search][:property_id])
-    @json = UserProperty.search_properties(params[:addr],params[:search][:ownership_type_id],params[:search][:property_id]).to_gmaps4rails
+    @search_properties=UserProperty.search_properties(params[:addr],params[:search][:property_id],params[:search][:ownership_type_id])
+    @json = UserProperty.all.to_gmaps4rails
   end
 
 end

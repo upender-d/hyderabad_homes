@@ -1,6 +1,8 @@
 class UserProperty < ActiveRecord::Base
   attr_accessible :is_current_location, :latitude, :location, :longitude, :ownership_type_id, :user_id, :property_id
 
+  scope :select_for_search, select('distinct on (user_properties.location, user_properties.property_id,user_properties.ownership_type_id) user_properties.id,user_properties.property_id,user_properties.location , user_properties.ownership_type_id')
+
   @per_page = 3
 
   belongs_to :user
@@ -32,8 +34,8 @@ class UserProperty < ActiveRecord::Base
     }
   end
 
-  def self.search_properties(query1,query2,query3)
-    joins(:property,:ownership_type).where("user_properties.location LIKE ? or  properties.name LIKE ? or ownership_types.name Like ?","%#{query1}%", "%#{query3}%", "%#{query2}%")
+  def self.search_properties(location,prop_type,ownership_type)
+    joins(:property,:ownership_type).select_for_search.where("user_properties.location = :location OR properties.name = :prop_type OR ownership_types.name = :ownership_type",:location => location , :prop_type => prop_type,:ownership_type=> ownership_type)
   end
 
 

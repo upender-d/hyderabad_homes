@@ -14,13 +14,19 @@
   <ul>
     <li>
       <h1 class="title"> Advanced Search </h1>
-      <%= form_tag users_user_looking_for_properties_path, :method=>'get' ,:remote=> true do %>
+      <%= form_for(:search, :url => search_properties_looking_users_user_looking_for_properties_path, :method=>'post') do |f| %>
           <table>
+            <tr>
+              <td>
+                <%= text_field_tag :search, params[:search], :name => "addr" , :class=>"text_field" ,:value=>'Search Location',:onfocus=>"if(this.value=='Search Location'){ this.value=''; this.style.color='#999999';}",:onblur=>"if(this.value=='') {this.value='Search Location';this.style.color='grey';}" %>
+                <input type="reset" id="pick_addr" class="myButton" />
+              </td>
+            </tr>
             <tr>
               <td>
                 <div>
                   <label class="form_label">Property Type</label>
-                  <%= text_field_tag :name,params[:name] ,:class =>"text_field" , :value => 'Search Property' , :onfocus=>"if(this.value=='Search Property'){ this.value=''; this.style.color='#999999';}",:onblur=>"if(this.value=='') {this.value='Search Property';this.style.color='grey';}" %>
+                  <%= f.text_field :property_id ,:class =>"text_field" , :value => 'Search Property' , :onfocus=>"if(this.value=='Search Property'){ this.value=''; this.style.color='#999999';}",:onblur=>"if(this.value=='') {this.value='Search Property';this.style.color='grey';}" %>
                 </div>
               </td>
             </tr>
@@ -28,7 +34,7 @@
               <td>
                 <div>
                   <label class="form_label">Interested Type</label>
-                  <%= text_field_tag :location,params[:location] , :class =>"text_field" , :value => 'Search Interested', :onfocus=>"if(this.value=='Search Interested'){ this.value=''; this.style.color='#999999';}",:onblur=>"if(this.value=='') {this.value='Search Interested';this.style.color='grey';}" %>
+                  <%= f.text_field :looking_for_id , :class =>"text_field" , :value => 'Search Interested', :onfocus=>"if(this.value=='Search Interested'){ this.value=''; this.style.color='#999999';}",:onblur=>"if(this.value=='') {this.value='Search Interested';this.style.color='grey';}" %>
                 </div>
               </td>
             </tr>
