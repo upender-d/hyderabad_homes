@@ -19,7 +19,7 @@
       <% end %>
 
       <h2 class="heads"><span> Create User Property</span></h2>
-      <%= form_for [:users,@user_property] do |f| %>
+      <%= form_for [:users,@user_property], :html =>{:onsubmit=>"return location_empty()",:multipart=> true} do |f| %>
 
           <table style="width:100%;" border="0" class="table1">
             <tr>
@@ -97,4 +97,16 @@
       });
 
   </script>
+
+  <script>
+      function location_empty()
+      {
+          if(document.getElementById("user_property_location").value == '')
+          {
+              alert("Location can't be blank!");
+              return false;
+          }
+      }
+  </script>
+
 </div>

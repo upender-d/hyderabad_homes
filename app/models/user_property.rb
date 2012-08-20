@@ -12,7 +12,7 @@ class UserProperty < ActiveRecord::Base
   geocoded_by :location
 
   validates :ownership_type_id , :presence => true
-  validates :location, :length => {:minimum => 3,:maximum => 150},:presence => true
+  validates :location , :presence => true
   validates :property_id , :presence => true
 
   after_validation :geocode, :if => :location_changed?
