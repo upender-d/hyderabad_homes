@@ -23,37 +23,37 @@
     <div class="details">
       <h2 class="heads"><span> Personal details</span></h2>
 
-      <table class="table" width="100%">
+      <table class="table" style="width: 100%;">
         <tr>
-          <td align="right" class="label">E-mail</td>
-          <td align="left"><%= current_user.email %></td>
+          <td style = "align: right;" class="label">E-mail</td>
+          <td style="align: left;"><%= current_user.email %></td>
         </tr>
         <tr>
-          <td width="50%" align="right" class="label">First Name</td>
-          <td width="50%" align="left"><%= @profile.first_name %></td>
+          <td style="width: 50%; align: right;" class="label">First Name</td>
+          <td style="width: 50%; align: left;"><%= @profile.first_name %></td>
         </tr>
         <tr>
-          <td align="right" class="label">Last Name</td>
-          <td align="left"><%= @profile.last_name %></td>
-        </tr>
-
-        <tr>
-          <td align="right" class="label">Date of Birth</td>
-          <td align="left"><%= @profile.dob %></td>
+          <td style="align: right;" class="label">Last Name</td>
+          <td style="align: left;"><%= @profile.last_name %></td>
         </tr>
 
         <tr>
-          <td align="right" class="label">Mobile Number</td>
-          <td align="left"><%= @profile.mobile_number %></td>
+          <td style="align: right;" class="label">Date of Birth</td>
+          <td style="align: left;"><%= @profile.dob %></td>
         </tr>
 
         <tr>
-          <td align="right" class="label">Employer</td>
-          <td align="left"><%= @profile.employer %></td>
+          <td style="align: right;" class="label">Mobile Number</td>
+          <td style="align: left;"><%= @profile.mobile_number %></td>
+        </tr>
+
+        <tr>
+          <td style="align: right;" class="label">Employer</td>
+          <td style="align: left;"><%= @profile.employer %></td>
         </tr>
       </table>
       <h2 class="heads" style="margin-top:20px;"><span> Location details</span></h2>
-      <table width="100%" border="0" cellspacing="0" cellpadding="0" class="table">
+      <table style ="width: 100%; border: -1px; cellspacing: 0px; cellpadding: 0px;" class="table">
         <tr>
           <td>
             <%= @profile.work_location %>
