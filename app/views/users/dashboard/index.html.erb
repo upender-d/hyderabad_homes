@@ -19,7 +19,7 @@
 
                     ['UserProperty', 'Owner ship Type'],
                     <% @ownership_types.each do |type| %>
-                    ['<%= type.name %>', <%= type.user_properties.count %>],
+                    ['<%= type.name %>', <%= type.user_properties.group_by(&:user_id).count %>],
                     <%end%>
                     /*['rented',     <%#= @ownership_type_rent.count %>],
                      ['owned',      <%#= @ownership_type_owned.count %>],
@@ -41,9 +41,9 @@
             google.setOnLoadCallback(drawChart);
             function drawChart() {
                 var data = google.visualization.arrayToDataTable([
-                    ['UserProperties', 'Property Type'],
+                    ['Users', 'Property Type'],
                     <% @properties.each do |property| %>
-                    ['<%= property.name %>',<%= property.user_properties.count %> ] ,
+                    ['<%= property.name %>',<%= property.user_properties.group_by(&:user_id).count %> ] ,
                     <%end%>
                     /*['Flat',       <%#= @property_type_flat.count %>],
                      ['Plot',       <%#= @property_type_plot.count %>],
@@ -80,7 +80,7 @@
                 var data = google.visualization.arrayToDataTable([
                     ['Task', 'UserLookingforProperty'],
                     <% @looking_fors.each do |looking| %>
-                    ['<%= looking.name %>',<%= looking.user_looking_for_properties.count %>],
+                    ['<%= looking.name %>',<%= looking.user_looking_for_properties.group_by(&:user_id).count %>],
                     <%end%>
                     /*['buy',       <%#= @interested_to_buy.count %>],
                      ['rent',      <%#= @interested_to_rent.count %>],
@@ -106,7 +106,7 @@
                 var data = google.visualization.arrayToDataTable([
                     ['Task', 'UserLookingforProperty'],
                     <% @properties.each do |property| %>
-                    ['<%= property.name %>',<%= property.user_looking_for_properties.count %> ] ,
+                    ['<%= property.name %>',<%= property.user_looking_for_properties.group_by(&:user_id).count %> ] ,
                     <%end%>
                     /*['rented',     <%#= @property_type_flat.count %>],
                      ['owned',      <%#= @property_type_plot.count %>],

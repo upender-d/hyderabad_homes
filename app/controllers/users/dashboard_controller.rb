@@ -3,7 +3,6 @@ class Users::DashboardController < ApplicationController
   require 'gdata'
 
   def index
-
     @properties = Property.all
     @user_properties = UserProperty.where(:user_id => current_user.id)
     @looking_fors = LookingFor.all

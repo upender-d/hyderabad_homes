@@ -1,6 +1,11 @@
 class HomeController < ApplicationController
   def index
-
+    puts'sssssssssssssssssssssssssss',
+        @users= UserProperty.select('distinct user_id').group(&:user_id)
+    p = LookingFor.all
+    p.each do |property|
+    puts "^^^^^^^^^^^",property.user_looking_for_properties.group_by(&:user_id).count
+      end
   end
 
   def search_properties
