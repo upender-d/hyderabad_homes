@@ -56,9 +56,9 @@
     <% else %>
         <div id="navigation">
           <ul class="sf-menu">
-            <li><a href="<%= home_index_path %>">Home</a></li>
-            <li><a href="<%= home_about_us_path %>" title="About Share a meal">About Us</a></li>
-            <li><a href="<%= home_contact_us_path %>" title="Contact Share a meal">Contact Us</a></li>
+            <li><%= link_to "Home",home_index_path,:title=> "Home", :class => ((action_name == "index") ? "current" : "") %></li>
+            <li><%= link_to "About Us",home_about_us_path,:title=>"About Hyderabad Homes", :class => ((action_name == "about_us") ? "current" : "") %></li>
+            <li><%= link_to "Contact Us",home_contact_us_path,:title=>"Contact Hyderabad Homes", :class => ((action_name == "contact_us") ? "current" : "") %></li>
           </ul>
         </div>
     <%end%>
