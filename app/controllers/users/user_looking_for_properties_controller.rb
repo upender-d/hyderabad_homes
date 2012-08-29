@@ -42,7 +42,7 @@ class Users::UserLookingForPropertiesController < ApplicationController
 
     if  @user_looking_for_property.update_attributes(params[:user_looking_for_property])
       redirect_to([:users,@user_looking_for_property])
-      flash[:notice] = "Profile Updated Successfully."
+      flash[:notice] = "Property Updated Successfully."
     else
       render :action => "edit"
     end

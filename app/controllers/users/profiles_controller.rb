@@ -19,7 +19,7 @@ class Users::ProfilesController < ApplicationController
 
       if  @profile.save
 
-        format.html { redirect_to ([:users,@profile]) ,:notice => "Profile Saved Successfully." }
+        format.html { redirect_to ([:users,@profile]) ,:notice => "Profile Created Successfully." }
       else
         format.html { render :action => "new" }
         format.xml  { render :xml => @profile.errors, :status => :unprocessable_entity }
