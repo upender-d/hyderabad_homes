@@ -1,6 +1,6 @@
 class UserLookingForProperty < ActiveRecord::Base
   scope :select_for_search, select('distinct on (user_looking_for_properties.location, user_looking_for_properties.property_id,user_looking_for_properties.looking_for_id) user_looking_for_properties.id,user_looking_for_properties.location,user_looking_for_properties.property_id,user_looking_for_properties.looking_for_id')
-  attr_accessible :looking_for_id, :latitude, :location, :longitude, :user_id , :property_id, :cart_id
+  attr_accessible :looking_for_id, :latitude, :location, :longitude, :user_id , :property_id, :cart_id, :price
 
   @per_page = 3
 
