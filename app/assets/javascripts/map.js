@@ -40,7 +40,7 @@ function AddressPicker(option){
 
 	var default_opt = {
 		callback : function(){},
-		width: 640,
+		width: 420,
 		height: 420
 	};
 
