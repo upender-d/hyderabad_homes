@@ -14,8 +14,8 @@
             <div class="toggler" style="margin: 10px 0px 10px 10px;">
               <div id="effect">
                 <div id="form_create_update1">
-                  <%= form_for(:search, :url => home_search_properties_path, :method => :post) do |f| %>
-                      <table class="update_table" style="cellpadding: 0; cellspacing: 0; width: 100px;" style="margin-bottom: 10px;">
+                  <%= form_for(:search, :url => home_search_properties_path, :method => :post, :html =>{:onsubmit=>"return location_empty()",:multipart=> true}) do |f| %>
+                      <table class="update_table" style="cellpadding: 0; cellspacing: 0;margin-bottom: 10px;">
                         <thead>
                         <tr >
                         <th colspan=2 class="new_header"><span>Select</span></th>
@@ -325,5 +325,15 @@
 
 </script>
 
+<script>
+    function location_empty()
+    {
+        if(document.getElementById("search").value == '')
+        {
+            alert("Location can't be blank!");
+            return false;
+        }
+    }
+</script>
 
 </div>
