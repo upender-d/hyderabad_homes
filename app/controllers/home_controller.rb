@@ -1,20 +1,14 @@
 class HomeController < ApplicationController
   def index
-    puts'sssssssssssssssssssssssssss',
-        @users= UserProperty.select('distinct user_id').group(&:user_id)
+    @users= UserProperty.select('distinct user_id').group(&:user_id)
     p = LookingFor.all
     p.each do |property|
-    puts "^^^^^^^^^^^",property.user_looking_for_properties.group_by(&:user_id).count
-      end
+    end
   end
 
   def search_properties
-
     @search_properties = UserLookingForProperty.search(params[:search][:property_id],params[:search][:looking_for_id],params[:addr])
-    puts "ddddddddddddddddddddddddd",@search_properties.count
     @json = UserLookingForProperty.all.to_gmaps4rails
-
-# @carts = [Cart.new]
   end
 
   def add_to_cart
