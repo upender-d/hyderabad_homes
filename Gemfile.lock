@@ -59,7 +59,7 @@ GEM
       multi_json (~> 1.0)
     formtastic (2.2.1)
       actionpack (>= 3.0)
-    geocoder (1.1.2)
+    geocoder (1.6.1)
     gmaps4rails (0.7.7)
       crack
     hike (1.2.1)
